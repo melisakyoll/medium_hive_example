@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_aes/app/data/hive_manager_data.dart';
 import 'package:flutter_aes/constant/color_constant.dart';
-import 'package:flutter_aes/core/base_widget.dart';
 import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';
 import 'package:flutter_aes/src/text_string.dart';
@@ -22,6 +22,7 @@ class FloatingActionButtonWidget extends StatefulWidget {
 class _FloatingActionButtonWidgetState
     extends State<FloatingActionButtonWidget> {
   final EncryptService _encryptService = EncryptService();
+  final HiveData _hiveData = HiveData();
   final servicecontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   final emailcontroller = TextEditingController();
@@ -135,8 +136,7 @@ class _FloatingActionButtonWidgetState
                       child: Text(StringTextWidget.saveText,
                           style: GoogleFonts.getFont('Inter', fontSize: 18)),
                       onPressed: () {
-                        final base = BaseWidget.of(context);
-                        base.dataStore.addTodo(password!, email!, type!);
+                        _hiveData.addPassword(password!, email!, type!);
                         Navigator.pop(context);
                         setState(() {});
                       })
