@@ -51,6 +51,12 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
           },
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: primary,
+        onPressed: () {},
+        child: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 

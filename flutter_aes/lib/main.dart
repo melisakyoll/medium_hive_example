@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_aes/constant/color_constant.dart';
-import 'package:flutter_aes/pages/home_page.dart';
+import 'package:flutter_aes/pages/home/home_page.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
