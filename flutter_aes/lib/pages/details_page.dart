@@ -28,7 +28,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: const Text(labelText),
+        title: Text(StringTextWidget.labelText),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -95,12 +95,12 @@ class _DetailsPageState extends State<DetailsPage> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         //TITLE
-        titlePadding(serviceTextUpper),
+        titlePadding(StringTextWidget.serviceTextUpper),
         subTitleRow(data, "${data['type']}"),
-        titlePadding(usernameTextUpper),
+        titlePadding(StringTextWidget.usernameTextUpper),
         subTitleRow(data, "${data['email']}"),
         //PASSWORD
-        titlePadding(passTextUpper),
+        titlePadding(StringTextWidget.passTextUpper),
         passwordCopy(data, context),
       ],
     );
@@ -133,7 +133,7 @@ class _DetailsPageState extends State<DetailsPage> {
           ),
         ),
         IconButton(
-          tooltip: copyMessage,
+          tooltip: StringTextWidget.copyMessage,
           onPressed: () {
             _encryptService.copyToClipboard(
               data['password'],

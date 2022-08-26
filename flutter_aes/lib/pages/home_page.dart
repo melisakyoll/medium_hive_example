@@ -27,7 +27,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: Text(appBarTitle, style: styleFontsWhite),
+        title: Text(StringTextWidget.appBarTitle, style: styleFontsWhite),
         actions: [
           IconButton(
               onPressed: () {
@@ -43,7 +43,9 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
           valueListenable: box.listenable(),
           builder: (context, Box box, _) {
             if (box.values.isEmpty) {
-              return Center(child: Text(noPassText, style: styleFontsBlack));
+              return Center(
+                  child: Text(StringTextWidget.noPassText,
+                      style: styleFontsBlack));
             }
             return gridViewBuild(box);
           },
@@ -92,7 +94,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
       secondaryActions: <Widget>[
         IconSlideAction(
           closeOnTap: true,
-          caption: deleteText,
+          caption: StringTextWidget.deleteText,
           color: red,
           icon: Icons.delete,
           onTap: () => alertDelete(index, data['type']),
@@ -111,11 +113,12 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Center(child: Text(deleteText, style: styleFonts)),
-        content: Text(isDelete),
+        title:
+            Center(child: Text(StringTextWidget.deleteText, style: styleFonts)),
+        content: Text(StringTextWidget.isDelete),
         actions: [
           TextButton(
-              child: Text('Evet'),
+              child: Text(StringTextWidget.deleteText),
               onPressed: () async {
                 await box.deleteAt(index);
                 setState(() {});
