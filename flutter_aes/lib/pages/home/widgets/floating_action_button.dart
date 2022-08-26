@@ -153,7 +153,7 @@ class _FloatingActionButtonWidgetState
       String password, String type, String email, BuildContext context) {
     return ElevatedButton(
         style: ButtonStyle(
-            padding: MaterialStateProperty.all(bottomNavPadding),
+            padding: MaterialStateProperty.all(PaddingWidget.bottomNavPadding),
             backgroundColor: MaterialStateProperty.all(
               primary,
             )),
