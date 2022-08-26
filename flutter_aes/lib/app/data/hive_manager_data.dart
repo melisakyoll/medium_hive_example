@@ -6,7 +6,7 @@ class HiveData {
   static const boxName = 'password';
   final Box box = Hive.box(boxName);
 
-  Future<void> addTodo(
+  Future<void> addPassword(
     String pass,
     String mail,
     String typ,
@@ -17,19 +17,11 @@ class HiveData {
     box.add(value);
   }
 
-  /*Future getTodo() async {
-    //return box.get(id);
-  }*/
-
-  Future<void> saveTodo() async {
-    //await todo.save();
+  Future<void> deletePassword(int index) async {
+    await box.deleteAt(index);
   }
 
-  Future<void> deleteTodo() async {
-    //await todo.delete();
-  }
-
-  ValueListenable<Box> listenTodo() {
+  ValueListenable<Box> listenPass() {
     return Hive.box(boxName).listenable();
   }
 }

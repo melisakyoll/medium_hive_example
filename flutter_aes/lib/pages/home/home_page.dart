@@ -1,7 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api, library_prefixes, prefer_const_constructors, use_build_context_synchronously, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter_aes/app/data/hive_manager_data.dart';
 import 'package:flutter_aes/constant/color_constant.dart';
+import 'package:flutter_aes/core/base_widget.dart';
 import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/pages/details_page.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';
@@ -21,6 +23,7 @@ class PasswordHomePage extends StatefulWidget {
 
 class _PasswordHomePageState extends State<PasswordHomePage> {
   final Box box = Hive.box("password");
+  final HiveData _hiveData = HiveData();
   final EncryptService _encryptService = EncryptService();
   @override
   Widget build(BuildContext context) {
@@ -126,7 +129,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
           TextButton(
               child: Text(StringTextWidget.deleteText),
               onPressed: () async {
-                await box.deleteAt(index);
+                _hiveData.deletePassword(index);
                 setState(() {});
                 Navigator.pop(context);
               })
