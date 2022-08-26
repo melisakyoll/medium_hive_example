@@ -66,7 +66,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return Wrap(
       children: <Widget>[
         Padding(
-          padding: horzonVertical,
+          padding: PaddingWidget.horzonVertical,
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.only(bottom: 20),

@@ -41,7 +41,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
         ],
       ),
       body: Padding(
-        padding: horzonVertical,
+        padding: PaddingWidget.horzonVertical,
         child: ValueListenableBuilder(
           valueListenable: box.listenable(),
           builder: (context, Box box, _) {
