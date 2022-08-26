@@ -11,11 +11,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 class EncryptService {
   final iv = ENCRYPT.IV.fromLength(16);
 
-  final encrypter =
-      ENCRYPT.Encrypter(ENCRYPT.AES(ENCRYPT.Key.fromUtf8(keyUtf8)));
+  final encrypter = ENCRYPT.Encrypter(
+      ENCRYPT.AES(ENCRYPT.Key.fromUtf8(StringTextWidget.keyUtf8)));
 
   String encrypt(String password) {
-    final key = ENCRYPT.Key.fromUtf8(keyUtf8);
+    final key = ENCRYPT.Key.fromUtf8(StringTextWidget.keyUtf8);
     final iv = ENCRYPT.IV.fromLength(16);
 
     final encrypter = ENCRYPT.Encrypter(ENCRYPT.AES(key));
@@ -33,7 +33,7 @@ class EncryptService {
     Clipboard.setData(ClipboardData(text: decrypted));
 
     Fluttertoast.showToast(
-        msg: copyMessage,
+        msg: StringTextWidget.copyMessage,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 2,

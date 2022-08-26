@@ -1,37 +1,45 @@
-//Encrypt Service Page
-const String keyUtf8 = 'WlFsdCYyJPPmKAVeA9ir+A==';
-const String copyMessage = 'Kopyalandı';
+// ignore_for_file: prefer_const_constructors_in_immutables
+
+import 'package:flutter/material.dart';
+
+class StringTextWidget extends Text {
+  StringTextWidget(super.data, {Key? key}) : super(key: key);
+
+  //Encrypt Service Page
+  static String keyUtf8 = 'WlFsdCYyJPPmKAVeA9ir+A==';
+  static String copyMessage = 'Kopyalandı';
 
 //Password Generator
-const String generateTitle = 'Parola Üretme ';
-const String labelText = 'Parola';
+  static String generateTitle = 'Parola Üretme ';
+  static String labelText = 'Parola';
 
 //Home Page
-const String appBarTitle = 'Parolalarınız';
-const String appBarIconTitle = 'Tüm Parolalar';
-const String noPassText = 'Parola Kaydedilmemiş';
-const String serviceText = 'Servis';
-const String enterValueText = 'Bir Değer Giriniz';
-const String usernameText = 'Kullanıcı Adı';
+  static String appBarTitle = 'Parolalarınız';
+  static String appBarIconTitle = 'Tüm Parolalar';
+  static String noPassText = 'Parola Kaydedilmemiş';
+  static String serviceText = 'Servis';
+  static String enterValueText = 'Bir Değer Giriniz';
+  static String usernameText = 'Kullanıcı Adı';
 
 //Servis Adları
-const String googleText = 'Google';
-const String facebookText = 'Facebook';
-const String instagramTekxt = 'Instagram';
-const String snapchatText = 'Snapchat';
-const String twitterTekxt = 'Twitter';
-const String dcText = 'Discord';
+  static String googleText = 'Google';
+  static String facebookText = 'Facebook';
+  static String instagramTekxt = 'Instagram';
+  static String snapchatText = 'Snapchat';
+  static String twitterTekxt = 'Twitter';
+  static String dcText = 'Discord';
 
-const String pleaseAuth = 'Lütfen Parolanızı Giriniz';
+  static String pleaseAuth = 'Lütfen Parolanızı Giriniz';
 
-const String saveText = 'Kaydet';
-const String deleteText = 'Sil';
-const String copyText = 'Kopyala';
+  static String saveText = 'Kaydet';
+  static String deleteText = 'Sil';
+  static String copyText = 'Kopyala';
 
-const String upperText = 'Lütfen servis adının ilk harfini büyük yazınız!';
+  static String upperText = 'Lütfen servis adının ilk harfini büyük yazınız!';
 
-const String serviceTextUpper = 'SERVİS';
-const String passTextUpper = 'PAROLA';
-const String usernameTextUpper = 'KULLANICI ADI';
+  static String serviceTextUpper = 'SERVİS';
+  static String passTextUpper = 'PAROLA';
+  static String usernameTextUpper = 'KULLANICI ADI';
 
-const String isDelete = 'Silinsin mi?';
+  static String isDelete = 'Silinsin mi?';
+}
