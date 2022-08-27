@@ -6,7 +6,6 @@ import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';
 import 'package:flutter_aes/src/text_string.dart';
-import 'package:flutter_aes/style/text_style.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -157,7 +156,8 @@ class _FloatingActionButtonWidgetState
             backgroundColor: MaterialStateProperty.all(
               primary,
             )),
-        child: Text(StringTextWidget.saveText, style: bottomNavStyle),
+        child: Text(StringTextWidget.saveText,
+            style: Theme.of(context).textTheme.headline4),
         onPressed: () {
           password = _encryptService.encrypt(password);
           Box box = Hive.box('password');

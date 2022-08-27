@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_aes/core/init/theme/app_theme.dart';
 import 'package:flutter_aes/core/init/theme/theme.dart';
 
-class LightTeheme extends AppTheme {
-  static LightTeheme? _instance;
-  static LightTeheme? get instance {
-    _instance ??= LightTeheme._init();
+class FirstThemeApp extends AppTheme {
+  static FirstThemeApp? _instance;
+  static FirstThemeApp? get instance {
+    _instance ??= FirstThemeApp._init();
     return null;
   }
 
-  LightTeheme._init();
+  FirstThemeApp._init();
   @override
   ThemeData get theme => ThemeApp;
 }

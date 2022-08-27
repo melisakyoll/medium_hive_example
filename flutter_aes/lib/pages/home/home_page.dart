@@ -2,13 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_aes/app/data/hive_manager_data.dart';
-import 'package:flutter_aes/core/base_widget.dart';
+import 'package:flutter_aes/core/base/state/base_widget.dart';
 import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/pages/details_page.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';
 import 'package:flutter_aes/src/text_string.dart';
-import 'package:flutter_aes/style/text_style.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_aes/widgets/icon.dart' as CustomIcons;
@@ -30,7 +29,8 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        title: Text(StringTextWidget.appBarTitle, style: styleFontsWhite),
+        title: Text(StringTextWidget.appBarTitle,
+            style: Theme.of(context).primaryTextTheme.headline4),
         actions: [
           IconButton(
               onPressed: () {
@@ -48,7 +48,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
             if (box.values.isEmpty) {
               return Center(
                   child: Text(StringTextWidget.noPassText,
-                      style: styleFontsBlack));
+                      style: Theme.of(context).textTheme.headline4));
             }
             return gridViewBuild(box);
           },
@@ -122,8 +122,9 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title:
-            Center(child: Text(StringTextWidget.deleteText, style: styleFonts)),
+        title: Center(
+            child: Text(StringTextWidget.deleteText,
+                style: Theme.of(context).textTheme.subtitle1)),
         content: Text(StringTextWidget.isDelete),
         actions: [
           TextButton(

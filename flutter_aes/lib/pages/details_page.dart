@@ -6,7 +6,6 @@ import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/pages/home/home_page.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';
 import 'package:flutter_aes/src/text_string.dart';
-import 'package:flutter_aes/style/text_style.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_aes/widgets/icon.dart' as CustomIcons;
 
@@ -114,7 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
           margin: const EdgeInsets.only(left: 50),
           child: Text(
             text,
-            style: passTextStyle,
+            style: Theme.of(context).textTheme.headline4,
           ),
         ),
       ],
@@ -129,7 +128,7 @@ class _DetailsPageState extends State<DetailsPage> {
           margin: const EdgeInsets.only(left: 50),
           child: Text(
             "${data['password']}",
-            style: passTextStyle,
+            style: Theme.of(context).textTheme.headline4,
           ),
         ),
         IconButton(
@@ -168,7 +167,7 @@ class _DetailsPageState extends State<DetailsPage> {
       padding: const EdgeInsets.only(top: 30, left: 50),
       child: Text(
         text,
-        style: cTextStyle,
+        style: Theme.of(context).textTheme.headline5,
       ),
     );
   }
