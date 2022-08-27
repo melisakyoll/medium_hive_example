@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_aes/constant/color_constant.dart';
+import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const Map<String, Icon> icons = {

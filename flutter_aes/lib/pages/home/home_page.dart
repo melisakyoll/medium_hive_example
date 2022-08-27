@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_aes/app/data/hive_manager_data.dart';
-import 'package:flutter_aes/constant/color_constant.dart';
 import 'package:flutter_aes/core/base_widget.dart';
+import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/pages/details_page.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';
@@ -104,7 +104,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
         IconSlideAction(
           closeOnTap: true,
           caption: StringTextWidget.deleteText,
-          color: red,
+          color: Theme.of(context).sliderTheme.activeTrackColor,
           icon: Icons.delete,
           onTap: () => alertDelete(index, data['type']),
         ),

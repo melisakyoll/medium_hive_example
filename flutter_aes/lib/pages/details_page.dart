@@ -1,7 +1,7 @@
 // ignore_for_file: library_prefixes
 
 import 'package:flutter/material.dart';
-import 'package:flutter_aes/constant/color_constant.dart';
+import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
 import 'package:flutter_aes/pages/home/home_page.dart';
 import 'package:flutter_aes/services/encyrpt_service.dart';

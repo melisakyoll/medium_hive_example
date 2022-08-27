@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_aes/constant/color_constant.dart';
+import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: prefer_const_constructors
