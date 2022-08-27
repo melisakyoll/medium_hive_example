@@ -25,3 +25,10 @@ class HiveData {
     return Hive.box(boxName).listenable();
   }
 }
+
+
+/*enum HiveData2{
+static const boxName = 'password';
+  final Box box = Hive.box(boxName);
+
+}*/
