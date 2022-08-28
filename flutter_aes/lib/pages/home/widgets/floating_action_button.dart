@@ -1,14 +1,13 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:flutter_aes/app/data/hive_manager_data.dart';
+import 'package:flutter_aes/core/base/state/base_widget.dart';
 import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
-import 'package:flutter_aes/services/encyrpt_service.dart';
 import 'package:flutter_aes/src/text_string.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class FloatingActionButtonWidget extends StatefulWidget {
   const FloatingActionButtonWidget({Key? key}) : super(key: key);
@@ -20,7 +19,6 @@ class FloatingActionButtonWidget extends StatefulWidget {
 
 class _FloatingActionButtonWidgetState
     extends State<FloatingActionButtonWidget> {
-  final EncryptService _encryptService = EncryptService();
   final HiveData _hiveData = HiveData();
   final servicecontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
@@ -69,7 +67,7 @@ class _FloatingActionButtonWidgetState
                         border: const OutlineInputBorder(),
                         labelText: StringTextWidget.serviceText,
                         hintText: StringTextWidget.googleText),
-                    style: GoogleFonts.getFont('Inter', fontSize: 18),
+                    style: Theme.of(context).textTheme.subtitle1,
                     onChanged: (value) => type = value,
                     validator: (val) {
                       if (val!.trim().isEmpty) {
@@ -133,7 +131,7 @@ class _FloatingActionButtonWidgetState
                             primary,
                           )),
                       child: Text(StringTextWidget.saveText,
-                          style: GoogleFonts.getFont('Inter', fontSize: 18)),
+                          style: Theme.of(context).textTheme.subtitle1),
                       onPressed: () {
                         _hiveData.addPassword(password!, email!, type!);
                         Navigator.pop(context);
@@ -150,6 +148,7 @@ class _FloatingActionButtonWidgetState
 
   ElevatedButton elevatedButtonWidget(
       String password, String type, String email, BuildContext context) {
+    final base = BaseWidget.of(context);
     return ElevatedButton(
         style: ButtonStyle(
             padding: MaterialStateProperty.all(PaddingWidget.bottomNavPadding),
@@ -159,10 +158,7 @@ class _FloatingActionButtonWidgetState
         child: Text(StringTextWidget.saveText,
             style: Theme.of(context).textTheme.headline4),
         onPressed: () {
-          password = _encryptService.encrypt(password);
-          Box box = Hive.box('password');
-          var value = {'type': type, 'email': email, 'password': password};
-          box.add(value);
+          base.dataStore.addPassword(password, email, type);
           Navigator.pop(context);
           setState(() {});
         });

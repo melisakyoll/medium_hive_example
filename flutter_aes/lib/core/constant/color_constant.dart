@@ -10,9 +10,6 @@ const snackbarColor = Color(0xff95D1CC);
 const toastColor = Color.fromARGB(255, 188, 179, 245);
 const iconColor = Color(0xff323A82);
 const greyColor = Colors.grey;
-const bottomNavColor = Color.fromARGB(255, 226, 240, 239);
-const grey800Color = Color.fromARGB(255, 66, 66, 66);
-const grey500Color = Color.fromARGB(255, 158, 158, 158);
 
 const google = Color(0xffff3e30);
 const gmail = Color(0xffbb001b);

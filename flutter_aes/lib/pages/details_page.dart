@@ -113,7 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
           margin: const EdgeInsets.only(left: 50),
           child: Text(
             text,
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headline6,
           ),
         ),
       ],
@@ -128,7 +128,7 @@ class _DetailsPageState extends State<DetailsPage> {
           margin: const EdgeInsets.only(left: 50),
           child: Text(
             "${data['password']}",
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
         IconButton(
@@ -167,7 +167,7 @@ class _DetailsPageState extends State<DetailsPage> {
       padding: const EdgeInsets.only(top: 30, left: 50),
       child: Text(
         text,
-        style: Theme.of(context).textTheme.headline5,
+        style: Theme.of(context).textTheme.subtitle1,
       ),
     );
   }

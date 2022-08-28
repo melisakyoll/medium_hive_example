@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 const String FONT_FAMILY = "Poppins";
 
-final ThemeData ThemeApp = ThemeData(
+ ThemeData ThemeApp = ThemeData(
   fontFamily: FONT_FAMILY,
   primarySwatch: Colors.blue,
   brightness: Brightness.light,
@@ -54,7 +54,7 @@ final ThemeData ThemeApp = ThemeData(
       borderRadius: BorderRadius.all(Radius.circular(2.0)),
     ),
     alignedDropdown: false,
-    buttonColor: Color(0xffe0e0e0),
+    buttonColor: Color(0xFF29395B),
     disabledColor: Color(0x61000000),
     highlightColor: Color(0x29000000),
     splashColor: Color(0x1f000000),
@@ -130,7 +130,7 @@ final ThemeData ThemeApp = ThemeData(
     ),
     bodyText1: TextStyle(
       color: Color(0xdd000000),
-      fontSize: null,
+      fontSize: 10,
       fontWeight: FontWeight.w400,
       fontStyle: FontStyle.normal,
     ),
