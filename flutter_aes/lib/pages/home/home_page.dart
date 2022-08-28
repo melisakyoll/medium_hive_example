@@ -30,7 +30,7 @@ class _PasswordHomePageState extends State<PasswordHomePage> {
       backgroundColor: whiteColor,
       appBar: AppBar(
         title: Text(StringTextWidget.appBarTitle,
-            style: Theme.of(context).primaryTextTheme.headline4),
+            style: Theme.of(context).primaryTextTheme.headline5),
         actions: [
           IconButton(
               onPressed: () {
