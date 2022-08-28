@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_aes/app/data/hive_manager_data.dart';
 import 'package:flutter_aes/core/base/state/base_widget.dart';
 import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
@@ -19,7 +18,6 @@ class FloatingActionButtonWidget extends StatefulWidget {
 
 class _FloatingActionButtonWidgetState
     extends State<FloatingActionButtonWidget> {
-  final HiveData _hiveData = HiveData();
   final servicecontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   final emailcontroller = TextEditingController();
@@ -133,7 +131,8 @@ class _FloatingActionButtonWidgetState
                       child: Text(StringTextWidget.saveText,
                           style: Theme.of(context).textTheme.subtitle1),
                       onPressed: () {
-                        _hiveData.addPassword(password!, email!, type!);
+                        final base = BaseWidget.of(context);
+                        base.dataStore.addPassword(password!, email!, type!);
                         Navigator.pop(context);
                         setState(() {});
                       })
