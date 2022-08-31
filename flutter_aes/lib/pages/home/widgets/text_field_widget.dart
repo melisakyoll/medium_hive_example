@@ -2,11 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_aes/src/text_string.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TextFieldWidget extends StatefulWidget {
-  TextFieldWidget({Key? key}) : super(key: key);
+  late bool obscure;
+  late IconData iconTheme;
+  late String labelText;
+  late String hintText;
+  late final Function(String) onChanged;
+  TextFieldWidget(this.controller, this.iconTheme, this.labelText,
+      this.hintText, this.onChanged,
+      {Key? key})
+      : super(key: key);
 
   TextEditingController controller = TextEditingController();
 
@@ -17,6 +23,11 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   TextEditingController controller = TextEditingController();
   late bool obscure;
+  late IconTheme iconTheme;
+  late String labelText;
+  late String hintText;
+  late final Function(String) onChanged;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -24,12 +35,19 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       textCapitalization: TextCapitalization.sentences,
       obscureText: obscure,
       decoration: InputDecoration(
-          icon: const Icon(FontAwesomeIcons.google),
+          icon: iconTheme,
           border: const OutlineInputBorder(),
-          labelText: StringTextWidget.serviceText,
-          hintText: StringTextWidget.googleText),
-      style: GoogleFonts.getFont('Inter', fontSize: 18),
-      //onChanged: () {},
+          labelText: labelText,
+          hintText: hintText),
+      style: Theme.of(context).textTheme.subtitle1,
+      onChanged: onChanged,
+      validator: (val) {
+        if (val!.trim().isEmpty) {
+          return StringTextWidget.enterValueText;
+        } else {
+          return null;
+        }
+      },
     );
   }
 }

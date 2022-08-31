@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_aes/core/base/state/base_widget.dart';
 import 'package:flutter_aes/core/constant/color_constant.dart';
 import 'package:flutter_aes/core/padding.dart';
+import 'package:flutter_aes/pages/home/widgets/text_field_widget.dart';
 import 'package:flutter_aes/src/text_string.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,23 +58,13 @@ class _FloatingActionButtonWidgetState
                   const SizedBox(
                     height: 15.0,
                   ),
-                  TextFormField(
-                    controller: servicecontroller,
-                    textCapitalization: TextCapitalization.sentences,
-                    decoration: InputDecoration(
-                        icon: const Icon(FontAwesomeIcons.google),
-                        border: const OutlineInputBorder(),
-                        labelText: StringTextWidget.serviceText,
-                        hintText: StringTextWidget.googleText),
-                    style: Theme.of(context).textTheme.subtitle1,
-                    onChanged: (value) => type = value,
-                    validator: (val) {
-                      if (val!.trim().isEmpty) {
-                        return StringTextWidget.enterValueText;
-                      } else {
-                        return null;
-                      }
-                    },
+                  TextFieldWidget(
+                    servicecontroller,
+                    FontAwesomeIcons.google,
+                    StringTextWidget.serviceText,
+                    StringTextWidget.googleText,
+                    (value)=> type = value,
+                    
                   ),
                   const SizedBox(height: 15.0),
                   TextFormField(
@@ -163,3 +154,27 @@ class _FloatingActionButtonWidgetState
         });
   }
 }
+
+
+/*
+
+TextFormField(
+                    controller: servicecontroller,
+                    textCapitalization: TextCapitalization.sentences,
+                    decoration: InputDecoration(
+                        icon: const Icon(FontAwesomeIcons.google),
+                        border: const OutlineInputBorder(),
+                        labelText: StringTextWidget.serviceText,
+                        hintText: StringTextWidget.googleText),
+                    style: Theme.of(context).textTheme.subtitle1,
+                    onChanged: (value) => type = value,
+                    validator: (val) {
+                      if (val!.trim().isEmpty) {
+                        return StringTextWidget.enterValueText;
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+
+*/
