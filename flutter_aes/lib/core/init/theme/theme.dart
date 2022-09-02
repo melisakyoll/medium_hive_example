@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 const String FONT_FAMILY = "Poppins";
 
- ThemeData ThemeApp = ThemeData(
+ThemeData ThemeApp = ThemeData(
   fontFamily: FONT_FAMILY,
   primarySwatch: Colors.blue,
   brightness: Brightness.light,
