@@ -48,91 +48,60 @@ class _FloatingActionButtonWidgetState
           child: Form(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    StringTextWidget.upperText,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  const SizedBox(
-                    height: 15.0,
-                  ),
-                  TextFieldWidget(
-                    servicecontroller,
-                    FontAwesomeIcons.google,
-                    StringTextWidget.serviceText,
-                    StringTextWidget.googleText,
-                    (value)=> type = value,
-                    
-                  ),
-                  const SizedBox(height: 15.0),
-                  TextFormField(
-                    controller: emailcontroller,
-                    textCapitalization: TextCapitalization.sentences,
-                    decoration: InputDecoration(
-                      icon: Icon(
-                        Icons.person,
-                        size: 26,
-                      ),
-                      border: OutlineInputBorder(),
-                      labelText: StringTextWidget.usernameText,
-                    ),
-                    style: GoogleFonts.getFont('Inter', fontSize: 18),
-                    onChanged: (value) => email = value,
-                    validator: (val) {
-                      if (val!.trim().isEmpty) {
-                        return StringTextWidget.enterValueText;
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                  const SizedBox(height: 15.0),
-                  TextFormField(
-                    controller: passwordcontroller,
-                    textCapitalization: TextCapitalization.sentences,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      icon: Icon(
-                        Icons.password,
-                      ),
-                      border: OutlineInputBorder(),
-                      labelText: StringTextWidget.labelText,
-                    ),
-                    style: GoogleFonts.getFont('Inter', fontSize: 18),
-                    onChanged: (value) => password = value,
-                    validator: (val) {
-                      if (val!.trim().isEmpty) {
-                        return StringTextWidget.enterValueText;
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                  const SizedBox(height: 15.0),
-                  ElevatedButton(
-                      style: ButtonStyle(
-                          padding: MaterialStateProperty.all(
-                              const EdgeInsets.symmetric(
-                                  horizontal: 50.0, vertical: 13.0)),
-                          backgroundColor: MaterialStateProperty.all(
-                            primary,
-                          )),
-                      child: Text(StringTextWidget.saveText,
-                          style: Theme.of(context).textTheme.subtitle1),
-                      onPressed: () {
-                        final base = BaseWidget.of(context);
-                        base.dataStore.addPassword(password!, email!, type!);
-                        Navigator.pop(context);
-                        setState(() {});
-                      })
-                ],
-              ),
+              child: _textFieldColumn(type, context, password, email),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Column _textFieldColumn(
+      String? type, BuildContext context, String? password, String? email) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          StringTextWidget.upperText,
+          style: TextStyle(fontSize: 16),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
+        TextFieldWidget(
+          servicecontroller,
+          FontAwesomeIcons.google,
+          StringTextWidget.serviceText,
+          StringTextWidget.googleText,
+          (value) => type = value,
+        ),
+        const SizedBox(height: 15.0),
+        /*TextFieldWidget(emailcontroller, iconTheme, StringTextWidget.usernameText, StringTextWidget.usernameText, (value) => email = value),*/
+
+        const SizedBox(height: 15.0),
+        /*TextFieldWidget(
+                    passwordcontroller,
+                   IconData(Icons.password),
+                    StringTextWidget.labelText,
+                    StringTextWidget.passTextUpper,
+                    (value) => password = value),*/
+        const SizedBox(height: 15.0),
+        ElevatedButton(
+            style: ButtonStyle(
+                padding: MaterialStateProperty.all(const EdgeInsets.symmetric(
+                    horizontal: 50.0, vertical: 13.0)),
+                backgroundColor: MaterialStateProperty.all(
+                  primary,
+                )),
+            child: Text(StringTextWidget.saveText,
+                style: Theme.of(context).textTheme.subtitle1),
+            onPressed: () {
+              final base = BaseWidget.of(context);
+              base.dataStore.addPassword(password!, email!, type!);
+              Navigator.pop(context);
+              setState(() {});
+            })
+      ],
     );
   }
 
@@ -154,27 +123,3 @@ class _FloatingActionButtonWidgetState
         });
   }
 }
-
-
-/*
-
-TextFormField(
-                    controller: servicecontroller,
-                    textCapitalization: TextCapitalization.sentences,
-                    decoration: InputDecoration(
-                        icon: const Icon(FontAwesomeIcons.google),
-                        border: const OutlineInputBorder(),
-                        labelText: StringTextWidget.serviceText,
-                        hintText: StringTextWidget.googleText),
-                    style: Theme.of(context).textTheme.subtitle1,
-                    onChanged: (value) => type = value,
-                    validator: (val) {
-                      if (val!.trim().isEmpty) {
-                        return StringTextWidget.enterValueText;
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-
-*/
