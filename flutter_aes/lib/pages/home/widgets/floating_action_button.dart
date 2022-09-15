@@ -19,9 +19,9 @@ class FloatingActionButtonWidget extends StatefulWidget {
 
 class _FloatingActionButtonWidgetState
     extends State<FloatingActionButtonWidget> {
-  final servicecontroller = TextEditingController();
-  final passwordcontroller = TextEditingController();
-  final emailcontroller = TextEditingController();
+  final serviceController = TextEditingController();
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _FloatingActionButtonWidgetState
           height: 15.0,
         ),
         TextFieldWidget(
-          servicecontroller,
+          serviceController,
           FontAwesomeIcons.google,
           StringTextWidget.serviceText,
           StringTextWidget.googleText,
