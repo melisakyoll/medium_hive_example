@@ -26,8 +26,6 @@ ThemeData ThemeApp = ThemeData(
   disabledColor: Color(0x61000000), //xx
   buttonColor: Color(0xffe0e0e0),
   secondaryHeaderColor: Color(0xffffebee),
-  cursorColor: Color(0xff4285f4),
-  textSelectionHandleColor: Color(0xffe57373),
   backgroundColor: Color.fromARGB(255, 255, 255, 254),
   floatingActionButtonTheme:
       FloatingActionButtonThemeData(backgroundColor: Color(0xffC20003)),
